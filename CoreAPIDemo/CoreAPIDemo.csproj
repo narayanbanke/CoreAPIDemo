@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20190202072021_MyCoreAPIDemo.Entities.LibraryContext.cs" />
-    <Compile Remove="Migrations\20190202072021_MyCoreAPIDemo.Entities.LibraryContext.Designer.cs" />
-    <Compile Remove="Migrations\20190202074917_MyCoreAPIDemo.Entities.LibraryContextSeed.cs" />
-    <Compile Remove="Migrations\20190202074917_MyCoreAPIDemo.Entities.LibraryContextSeed.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
