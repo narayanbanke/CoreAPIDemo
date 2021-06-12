@@ -21,15 +21,15 @@ namespace CoreAPIDemo.Entities
             {
              
                 AuthorId= Guid.NewGuid(),
-                FirstName = "Bob",
-                LastName = "Ross",
-                Genre = "Drama"
+                FirstName = "narayan",
+                LastName = "banke",
+                Genre = "IT"
 
             }, new Author
             {
                 AuthorId=Guid.NewGuid(),
-                FirstName = "David",
-                LastName = "Miller",
+                FirstName = "Shoba",
+                LastName = "Patil",
                 Genre = "Fantasy"
             });
         }
