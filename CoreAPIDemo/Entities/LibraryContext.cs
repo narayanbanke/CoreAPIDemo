@@ -17,21 +17,21 @@ namespace CoreAPIDemo.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Author>().HasData(new Author
-            {
-             
-                AuthorId= Guid.NewGuid(),
-                FirstName = "narayan",
-                LastName = "banke",
-                Genre = "IT"
+            //    modelBuilder.Entity<Author>().HasData(new Author
+            //    {
 
-            }, new Author
-            {
-                AuthorId=Guid.NewGuid(),
-                FirstName = "Shoba",
-                LastName = "Patil",
-                Genre = "Fantasy"
-            });
+            //        AuthorId= Guid.NewGuid(),
+            //        FirstName = "narayan",
+            //        LastName = "banke",
+            //        Genre = "IT"
+
+            //    }, new Author
+            //    {
+            //        AuthorId=Guid.NewGuid(),
+            //        FirstName = "Shoba",
+            //        LastName = "Patil",
+            //        Genre = "Fantasy"
+            //    });
         }
 
     }
