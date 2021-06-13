@@ -10,8 +10,7 @@ namespace CoreAPIDemo.Entities
     [Table("Author",Schema ="dbo")]
     public class Author
     {
-        [Key]
-        
+        [Key]        
         public Guid AuthorId { get; set; }
 
         [Required]

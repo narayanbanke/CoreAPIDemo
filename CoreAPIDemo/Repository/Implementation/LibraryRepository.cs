@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoreAPIDemo.Repository.Implementation
 {
-    public class LibraryRepository: ILibraryRepository<Author>
+    public class LibraryRepository: ILibraryRepository<Author> 
     {
         readonly LibraryContext _libraryContext;
 

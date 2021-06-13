@@ -15,4 +15,5 @@ namespace CoreAPIDemo.Repository.Contract
         Author GetAuthor(Guid authorId);
 
     }
+     
 }

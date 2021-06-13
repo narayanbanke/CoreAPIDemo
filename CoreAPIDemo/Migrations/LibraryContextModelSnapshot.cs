@@ -19,7 +19,7 @@ namespace MyCoreAPIDemo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MyCoreAPIDemo.Entities.Author", b =>
+            modelBuilder.Entity("CoreAPIDemo.Entities.Author", b =>
                 {
                     b.Property<Guid>("AuthorId")
                         .ValueGeneratedOnAdd();
@@ -57,7 +57,7 @@ namespace MyCoreAPIDemo.Migrations
                         });
                 });
 
-            modelBuilder.Entity("MyCoreAPIDemo.Entities.Book", b =>
+            modelBuilder.Entity("CoreAPIDemo.Entities.Book", b =>
                 {
                     b.Property<Guid>("BookId")
                         .ValueGeneratedOnAdd();
