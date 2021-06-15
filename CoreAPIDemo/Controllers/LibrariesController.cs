@@ -46,7 +46,21 @@ namespace CoreAPIDemo.Controllers
                 return BadRequest();
             }
         }
-
+        [HttpDelete]
+        [Route("DeleteAuthor")]
+        public IActionResult DeleteAuthor(Guid authorId)
+        {
+            try
+            {
+                int result = _libraryRepository.DeleteAuthor(authorId);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                //log Exception
+                return BadRequest();
+            }
+        }
 
         [HttpPost]
         [Route("AddAuthor")]
@@ -93,21 +107,7 @@ namespace CoreAPIDemo.Controllers
                 return BadRequest();
             }
         }
-        [HttpDelete]
-        [Route("DeleteAuthor")]
-        public IActionResult DeleteAuthor(Guid authorId)
-        {
-            try
-            {
-                int result = _libraryRepository.DeleteAuthor(authorId);
-                return Ok(result);
-            }
-            catch(Exception ex)
-            {
-                //log Exception
-                return BadRequest();
-            }
-        }
+        
 
 
 

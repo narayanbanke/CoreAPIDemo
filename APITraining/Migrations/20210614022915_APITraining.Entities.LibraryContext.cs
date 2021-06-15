@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CoreAPIDemo.Migrations
+namespace APITraining.Migrations
 {
-    public partial class CoreAPIDemoEntitiesLibraryContext : Migration
+    public partial class APITrainingEntitiesLibraryContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,18 +46,6 @@ namespace CoreAPIDemo.Migrations
                         principalColumn: "AuthorId",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.InsertData(
-                schema: "dbo",
-                table: "Author",
-                columns: new[] { "AuthorId", "FirstName", "Genre", "LastName" },
-                values: new object[] { new Guid("08d31834-e711-4e4e-a196-b8ec5431aad3"), "Bob", "Drama", "Ross" });
-
-            migrationBuilder.InsertData(
-                schema: "dbo",
-                table: "Author",
-                columns: new[] { "AuthorId", "FirstName", "Genre", "LastName" },
-                values: new object[] { new Guid("499b7f6d-7c1e-458b-9d6f-50ffe0eb13c0"), "David", "Fantasy", "Miller" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Book_AuthorId",
