@@ -26,8 +26,8 @@ namespace CoreAPIDemoXTest
             //ACT
             var okResult = result as OkObjectResult;
             //Assert
-            Assert.IsType<OkObjectResult>(okResult);
-
+          //  Assert.IsType<OkObjectResult>(okResult);
+            Assert.Equal("200", okResult.StatusCode.ToString());
         }
         [Fact]
         public void GetAuthor()
@@ -38,8 +38,8 @@ namespace CoreAPIDemoXTest
             //ACT
             var okResult = result as OkObjectResult;
             //Assert
-            Assert.IsType<OkObjectResult>(okResult);
-
+            //Assert.IsType<OkObjectResult>(okResult);
+            Assert.Equal("200", okResult.StatusCode.ToString());
         }
 
         [Fact]
