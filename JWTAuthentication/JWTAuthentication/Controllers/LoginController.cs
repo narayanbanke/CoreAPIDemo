@@ -58,13 +58,13 @@ namespace JWTAuthentication.Controllers
 
         private UserModel AuthenticateUser(UserModel login)
         {
-            UserModel user = null;
+            UserModel user = login;
 
-            //Validate the User Credentials
+            //Validate the User CredentialsAuthenticateUser
             //Demo Purpose, I have Passed HardCoded User Information
-            if (user.Username == "Jignesh")
+            if (user.Username == "username")
             {
-                user = new UserModel { Username = "Jignesh Trivedi", EmailAddress = "test.btest@gmail.com", DateOfJoing = new DateTime(2010, 08, 02) };
+                user = new UserModel { Username = "username", EmailAddress = "test.btest@gmail.com", DateOfJoing = new DateTime(2010, 08, 02) };
             }
             return user;
         }
