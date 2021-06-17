@@ -14,17 +14,17 @@ namespace CoreAPIDemoXTest
 {
     public class LibrariesControllerTest
     {
-        public LibrariesController Controller { get; set; }
-        private readonly Mock<ILibraryRepository<Author>> mocRepo;
+      //  public LibrariesController Controller { get; set; }
+     //   private readonly Mock<ILibraryRepository<Author>> mocRepo;
         static private ILibraryRepository<Author> repository;
         public static DbContextOptions<LibraryContext> dbContextOptions { get; }
         public static string connectionString = "Server=DESKTOP-I9BPSB6\\NPSQL;Database=BlogDB;UID=sa;PWD=Love@1234;";
 
-        public LibrariesControllerTest()
-        {
-            mocRepo = new Mock<ILibraryRepository<Author>>();
-            Controller = new LibrariesController(mocRepo.Object);
-        }
+        //public LibrariesControllerTest()
+        //{
+        //    mocRepo = new Mock<ILibraryRepository<Author>>();
+        //    Controller = new LibrariesController(mocRepo.Object);
+        //}
         
         static LibrariesControllerTest()
         {
@@ -54,7 +54,7 @@ namespace CoreAPIDemoXTest
         public void GetAuthor()
         {
             var controller = new LibrariesController(repository);
-            Guid Author = new Guid("27E2D42D-1DD2-4CAF-675F-08D9301227D5");
+           Guid Author = new Guid("3c15e28a-1c5f-4624-231a-08d931991d87");
             var result = controller.GetAuthor(Author);
             //ACT
             var okResult = result as OkObjectResult;
@@ -68,10 +68,16 @@ namespace CoreAPIDemoXTest
         {
             var controller = new LibrariesController(repository);
             //Arrange 
-            Guid Author = new Guid("CBCC5291-78D9-4715-908A-08D9318C4D79");
-            var result = controller.DeleteAuthor(Author);
+            var result = controller.GetAllAuthor();
             //ACT
-            var okResult = result as OkObjectResult;            
+            var okResult = result as OkObjectResult;
+            IEnumerable<Author> authors = okResult.Value as IEnumerable<Author>;
+            controller = new LibrariesController(repository);
+            //Arrange 
+            Guid Author = new Guid("9938aff7-ac93-46b4-54ac-08d931999d51");
+              result = controller.DeleteAuthor(Author);
+            //ACT
+              okResult = result as OkObjectResult;            
             Assert.Equal("1", okResult.Value.ToString());
         }
          

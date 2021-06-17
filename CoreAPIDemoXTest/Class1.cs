@@ -14,27 +14,13 @@ namespace CoreAPIDemoXTest
         public void Seed(LibraryContext context)
         {
             context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
-            //modelBuilder.Entity<Author>().HasData(new Author
-            //{
+            context.Database.EnsureCreated();            
 
-            //    AuthorId = Guid.NewGuid(),
-            //    FirstName = "narayan",
-            //    LastName = "banke",
-            //    Genre = "IT"
-
-            //}, new Author
-            //{
-            //    AuthorId = Guid.NewGuid(),
-            //    FirstName = "Shoba",
-            //    LastName = "Patil",
-            //    Genre = "Fantasy"
-            //});
             context.Authors.AddRange(
-                new Author() { FirstName = "CSHARP", LastName = "csharp", Genre = "it" },
-                new Author() { FirstName = "VISUAL STUDIO", LastName = "visualstudio", Genre = "it" },
-                new Author() { FirstName = "ASP.NET CORE", LastName = "aspnetcore", Genre = "it" },
-                new Author() { FirstName = "SQL SERVER", LastName = "sqlserver", Genre = "it" }
+                new Author() { FirstName = "Narayan", LastName = "banke", Genre = "software" },
+                new Author() { FirstName = "John", LastName = "Lee", Genre = "Hardware" },
+                new Author() { FirstName = "Shobha", LastName = "Patil", Genre = "Software" },
+                new Author() { FirstName = "Other", LastName = "sqlserver", Genre = "it" }
             );
 
 
