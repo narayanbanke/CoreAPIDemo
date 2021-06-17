@@ -14,14 +14,14 @@ namespace CoreAPIDemo.Controllers
     public class LibrariesController : ControllerBase
     {
         private readonly ILibraryRepository<Author> _libraryRepository;
+
        
 
-     
         public LibrariesController(ILibraryRepository<Author> libraryRepository)
         {
             _libraryRepository = libraryRepository;
         }
-
+        
         // GET: api/Libraries/GetAllAuthor
         [HttpGet]
         [Route("GetAllAuthor")]
@@ -113,4 +113,8 @@ namespace CoreAPIDemo.Controllers
 
 
     }
+
+   
+
+
 }

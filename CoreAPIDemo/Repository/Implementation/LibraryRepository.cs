@@ -83,8 +83,10 @@ namespace CoreAPIDemo.Repository.Implementation
             {
                 if (_libraryContext != null)
                 {
-                    var author = _libraryContext.Authors.FirstOrDefault(x => x.AuthorId== authorId);
-                    if(author!=null)
+                  //  var author = _libraryContext.Authors.FirstOrDefault(x => x.AuthorId== authorId);
+
+                    var author = _libraryContext.Authors.Where(e => e.AuthorId == authorId).FirstOrDefault();
+                    if (author!=null)
                     {
                         _libraryContext.Remove(author);
                         _libraryContext.SaveChanges();

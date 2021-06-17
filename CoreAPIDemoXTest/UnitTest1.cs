@@ -6,6 +6,9 @@ using CoreAPIDemo.Repository.Contract;
 using Moq;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+ 
+using CoreAPIDemo.Repository.Implementation;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreAPIDemoXTest
 {
@@ -13,16 +16,34 @@ namespace CoreAPIDemoXTest
     {
         public LibrariesController Controller { get; set; }
         private readonly Mock<ILibraryRepository<Author>> mocRepo;
+        static private ILibraryRepository<Author> repository;
+        public static DbContextOptions<LibraryContext> dbContextOptions { get; }
+        public static string connectionString = "Server=DESKTOP-I9BPSB6\\NPSQL;Database=BlogDB;UID=sa;PWD=Love@1234;";
+
         public LibrariesControllerTest()
         {
             mocRepo = new Mock<ILibraryRepository<Author>>();
             Controller = new LibrariesController(mocRepo.Object);
         }
+        
+        static LibrariesControllerTest()
+        {
+            dbContextOptions = 
+                new DbContextOptionsBuilder<LibraryContext>()
+                .UseSqlServer(connectionString)
+                .Options;
+            
+            var context = new LibraryContext(dbContextOptions);
+            DummyDataDBInitializer db = new DummyDataDBInitializer();
+            db.Seed(context);
+            repository = new LibraryRepository(context);
+        }
         [Fact]
         public void GetAllAuthor()
         {
+            var controller = new LibrariesController(repository);
             //Arrange 
-            var result = Controller.GetAllAuthor();
+            var result = controller.GetAllAuthor();
             //ACT
             var okResult = result as OkObjectResult;
             //Assert
@@ -32,9 +53,9 @@ namespace CoreAPIDemoXTest
         [Fact]
         public void GetAuthor()
         {
-            //Arrange 
+            var controller = new LibrariesController(repository);
             Guid Author = new Guid("27E2D42D-1DD2-4CAF-675F-08D9301227D5");
-            var result = Controller.GetAuthor(Author);
+            var result = controller.GetAuthor(Author);
             //ACT
             var okResult = result as OkObjectResult;
             //Assert
@@ -45,29 +66,20 @@ namespace CoreAPIDemoXTest
         [Fact]
         public void DeleteAuthor()
         {
+            var controller = new LibrariesController(repository);
             //Arrange 
-            Guid Author = new Guid("27E2D42D-1DD2-4CAF-675F-08D9301227D5");
-            var result = Controller.DeleteAuthor(Author);
+            Guid Author = new Guid("CBCC5291-78D9-4715-908A-08D9318C4D79");
+            var result = controller.DeleteAuthor(Author);
             //ACT
             var okResult = result as OkObjectResult;            
             Assert.Equal("1", okResult.Value.ToString());
         }
-        private Author GetTestSessions()
-        {
-            var sessions = new Author();
-            List<Book> b = new List<Book>();
-
-            sessions.AuthorId = Guid.NewGuid();
-            sessions.LastName = "lst";
-            sessions.FirstName = "fst";
-            sessions.Genre = "dd";
-            sessions.Books = b;
-            return sessions;
-        }
+         
 
         [Fact]
         public void AddAuthor()
         {
+            var controller = new LibrariesController(repository);
             List<Book> b = new List<Book>();
             // Arrange  
             //var controller = newDepartmentController();
@@ -79,7 +91,7 @@ namespace CoreAPIDemoXTest
             sessions.Books = b;
 
             // Act  
-            var  actionResult = Controller.AddAuthor(sessions);
+            var  actionResult = controller.AddAuthor(sessions);
          //   var createdResult = actionResult asCreatedAtRouteNegotiatedContentResult<Department>;
             // Assert  
             //Assert.IsNotNull(createdResult);
