@@ -52,21 +52,39 @@ namespace CoreAPIDemoXTest
             var okResult = result as OkObjectResult;            
             Assert.Equal("1", okResult.Value.ToString());
         }
+        private Author GetTestSessions()
+        {
+            var sessions = new Author();
+            List<Book> b = new List<Book>();
+
+            sessions.AuthorId = Guid.NewGuid();
+            sessions.LastName = "lst";
+            sessions.FirstName = "fst";
+            sessions.Genre = "dd";
+            sessions.Books = b;
+            return sessions;
+        }
+
         [Fact]
         public void AddAuthor()
         {
             List<Book> b = new List<Book>();
+            // Arrange  
+            //var controller = newDepartmentController();
+            Author sessions = new Author(); 
+            sessions.AuthorId = Guid.NewGuid();
+            sessions.LastName = "lst";
+            sessions.FirstName = "fst";
+            sessions.Genre = "dd";
+            sessions.Books = b;
 
-            Author Author = new Author();
-            Author.AuthorId = new Guid("27E2D42D-1DD2-4CAF-675F-08D9301227D9");
-            Author.LastName = "lst";
-            Author.FirstName = "fst";
-            Author.Genre = "dd";
-            Author.Books = b;
-             var result = Controller.AddAuthor(Author);
-            //ACT
-            var okResult = result as OkObjectResult;
-            Assert.Equal("1", okResult.Value.ToString());
+            // Act  
+            var  actionResult = Controller.AddAuthor(sessions);
+         //   var createdResult = actionResult asCreatedAtRouteNegotiatedContentResult<Department>;
+            // Assert  
+            //Assert.IsNotNull(createdResult);
+            //Assert.AreEqual("DefaultApi", createdResult.RouteName);
+            //Assert.IsNotNull(createdResult.RouteValues["id"]);
         }
 
     }
