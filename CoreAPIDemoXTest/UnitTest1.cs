@@ -72,10 +72,19 @@ namespace CoreAPIDemoXTest
             //ACT
             var okResult = result as OkObjectResult;
             IEnumerable<Author> authors = okResult.Value as IEnumerable<Author>;
-            controller = new LibrariesController(repository);
+        //    controller = new LibrariesController(repository);
             //Arrange 
-            Guid Author = new Guid("9938aff7-ac93-46b4-54ac-08d931999d51");
-              result = controller.DeleteAuthor(Author);
+
+ 
+            //Guid Author=List<CoreAPIDemo.Entities.Author>.Enumerator)authors.GetEnumerator()
+            List<string> guid = new List<string>();
+            foreach (var a in authors)
+            {
+                guid.Add ( a.AuthorId.ToString());           
+            
+            }
+            Guid Authorid = new Guid(guid[1]);
+            result = controller.DeleteAuthor(Authorid);
             //ACT
               okResult = result as OkObjectResult;            
             Assert.Equal("1", okResult.Value.ToString());
