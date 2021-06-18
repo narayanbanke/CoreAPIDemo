@@ -12,7 +12,7 @@ namespace JWTAuthentication.Controllers
     {
         // GET api/values
         [HttpGet]
-        [Authorize]
+       [Authorize]
         public ActionResult<IEnumerable<string>> Get()
         {
             var currentUser = HttpContext.User;

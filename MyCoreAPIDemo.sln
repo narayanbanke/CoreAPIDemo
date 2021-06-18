@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting", "UnitTest_Moc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreServices", "CRUD-AspNetCore-WebAPI-master\CoreServices\CoreServices.csproj", "{615B4A89-683E-45CB-8B42-C860DAEA0041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreServiesTest", "CoreServiesTest\CoreServiesTest.csproj", "{B98BB861-C86F-4DAB-92CA-14E87F4FDF53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreServiesTest", "CoreServiesTest\CoreServiesTest.csproj", "{B98BB861-C86F-4DAB-92CA-14E87F4FDF53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deploydemo", "Deploydemo\Deploydemo.csproj", "{BE280C8D-324F-4F3C-927D-2B2153193D4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{B98BB861-C86F-4DAB-92CA-14E87F4FDF53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B98BB861-C86F-4DAB-92CA-14E87F4FDF53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B98BB861-C86F-4DAB-92CA-14E87F4FDF53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE280C8D-324F-4F3C-927D-2B2153193D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE280C8D-324F-4F3C-927D-2B2153193D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE280C8D-324F-4F3C-927D-2B2153193D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE280C8D-324F-4F3C-927D-2B2153193D4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

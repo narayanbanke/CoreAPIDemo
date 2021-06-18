@@ -62,7 +62,7 @@ namespace JWTAuthentication.Controllers
 
             //Validate the User CredentialsAuthenticateUser
             //Demo Purpose, I have Passed HardCoded User Information
-            if (user.Username == "username")
+            if (user.Username == "username" )
             {
                 user = new UserModel { Username = "username", EmailAddress = "test.btest@gmail.com", DateOfJoing = new DateTime(2010, 08, 02) };
             }

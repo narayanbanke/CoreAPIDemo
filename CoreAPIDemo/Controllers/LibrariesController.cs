@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CoreAPIDemo.Entities;
 using CoreAPIDemo.Repository.Contract;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CoreAPIDemo.Controllers
 {
@@ -21,13 +22,22 @@ namespace CoreAPIDemo.Controllers
         {
             _libraryRepository = libraryRepository;
         }
-        
+
         // GET: api/Libraries/GetAllAuthor
+     [Authorize]
         [HttpGet]
         [Route("GetAllAuthor")]
         public IActionResult GetAllAuthor()
         {
-            IEnumerable<Author> authors = _libraryRepository.GetAllAuthor();
+            IEnumerable<Author> authors = null;  
+            var currentUser = HttpContext.User;
+          
+
+            if (currentUser.HasClaim(c => c.Type == "DateOfJoing"))
+            {
+                 authors = _libraryRepository.GetAllAuthor();
+                
+            }
             return Ok(authors);
         }
         [HttpGet]
